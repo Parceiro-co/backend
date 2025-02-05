@@ -1,4 +1,9 @@
-@Repository
-public class ParceiroRepository Implements JpaRepository<Parceiro> {
+package com.Parceria.co.modules.parceiros.repositories;
 
-}
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.Parceria.co.modules.parceiros.entities.Parceiro;
+
+@Repository
+public interface ParceiroRepository extends JpaRepository<Parceiro, Long> {}

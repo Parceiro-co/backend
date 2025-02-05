@@ -1,6 +1,7 @@
-package com.example.model;
+package com.Parceria.co.modules.parceiros.entities;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -25,7 +26,8 @@ public class Parceiro {
     private String about;
 
     @Column(name = "data_criacao", nullable = false, updatable = false)
-    private LocalDateTime creationDate = LocalDateTime.now();
+    private LocalDateTime creationDate;
+    // Não sei se está certo isso
 
     // Getters and Setters
 }

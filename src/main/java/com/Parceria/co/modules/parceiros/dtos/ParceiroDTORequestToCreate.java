@@ -1,3 +1,6 @@
+package com.Parceria.co.modules.parceiros.dtos;
+
+import jakarta.validation.constraints.NotBlank;
 
 public record ParceiroDTORequestToCreate(
     

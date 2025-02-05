@@ -1,12 +1,33 @@
+package com.Parceria.co.modules.parceiros.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Parceria.co.modules.parceiros.dtos.ParceiroDTORequestToCreate;
+import com.Parceria.co.modules.parceiros.dtos.ParceiroDTOResponse;
+import com.Parceria.co.modules.parceiros.mappers.ParceiroToDtoMapper;
+import com.Parceria.co.modules.parceiros.services.ParceiroService;
+
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/parceiros")
 public class ParceiroController {
 
     @Autowired
-    private final ParceiroService parceiroService;
+    private ParceiroService service;
 
     @Autowired
-    private final ParceiroMapperToDTOResponse mapperToDtoResponse;
+    private ParceiroToDtoMapper mapper;
 
 
     /*
@@ -15,11 +36,11 @@ public class ParceiroController {
         - endpoint "/parceiros" (POST)
     */
     @PostMapping
-    public ResponseEntity<?> createParceiro(
-        @Valid @RequestBody ParceiroDTORequest parceiroRequest
+    public ResponseEntity<ParceiroDTOResponse> createParceiro(
+        @Valid @RequestBody ParceiroDTORequestToCreate parceiroRequest
     ) {
         try {
-            return ParceiroService.createParceiro(parceiroRequest);
+            return service.createParceiro(parceiroRequest);
         } catch (Exception e) {
             System.out.println("Erro: "+ e);
             return null;
@@ -29,7 +50,7 @@ public class ParceiroController {
     @GetMapping
     public ResponseEntity<List<?>> readAllParceiro() {
         try {
-            return ParceiroService.readAllParceiro();
+            return service.readAllParceiro();
         } catch (Exception e) {
             System.out.println("Erro: "+ e);
             return null;
@@ -42,7 +63,7 @@ public class ParceiroController {
         @Valid @RequestBody ParceiroDTORequestToCreate parceiroRequest
     ) {
         try {
-            return ParceiroService.updateParceiro(parceiroRequest);
+            return service.updateParceiro(parceiroRequest);
         } catch (Exception e) {
             System.out.println("Erro: "+ e);
             return null;
@@ -54,7 +75,7 @@ public class ParceiroController {
         @PathVariable Long id 
     ) {
         try {
-            return ParceiroService.deleteParceiro(id);
+            return service.deleteParceiro(id);
         } catch (Exception e) {
             System.out.println("Erro: "+ e);
             return null;
