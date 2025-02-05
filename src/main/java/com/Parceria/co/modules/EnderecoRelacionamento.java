@@ -1,13 +1,15 @@
-package com.example.model;
+package com.Parceria.co.modules;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-import com.example.enumeration.TipoEntidade;
+import com.Parceria.co.enums.TipoEntidade;
 
 @Data
+@Builder
 @Entity
 @Table(name = "enderecos_relacionamentos")
 public class EnderecoRelacionamento {
@@ -18,7 +20,8 @@ public class EnderecoRelacionamento {
 
     @ManyToOne
     @JoinColumn(name = "endereco_id", nullable = false)
-    private Endereco endereco;
+    // private Endereco endereco;
+    private String endereco;
 
     @Column(name = "entidade_id", nullable = false)
     private Long entidadeId;

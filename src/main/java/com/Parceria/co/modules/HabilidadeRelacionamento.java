@@ -1,10 +1,14 @@
-package com.example.model;
+package com.Parceria.co.modules;
 
-import com.example.enumeration.TipoEntidade;
+import com.Parceria.co.enums.TipoEntidade;
+import com.Parceria.co.modules.skills.entities.Skill;
+
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 @Entity
 @Table(name = "habilidades_relacionamentos")
 public class HabilidadeRelacionamento {
@@ -15,7 +19,7 @@ public class HabilidadeRelacionamento {
 
     @ManyToOne
     @JoinColumn(name = "habilidade_id", nullable = false)
-    private Habilidade habilidade;
+    private Skill skill;
 
     @Column(name = "entidade_id", nullable = false)
     private Long entidadeId;

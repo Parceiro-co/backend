@@ -1,6 +1,7 @@
-package com.example.model;
+package com.Parceria.co.modules.skills.entities;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
@@ -8,16 +9,12 @@ import lombok.Data;
 @Entity
 @Table(name = "habilidades")
 public class Skill {
-    
-    public Skill() {
-
-    }
-    
+        
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = 'nome')
+    @Column(name = "nome")
     private String name;
 
     @Column(name = "categoria")

@@ -1,11 +1,13 @@
-package com.example.model;
+package com.Parceria.co.modules;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-import com.example.enumeration.TipoEntidade;
+import com.Parceria.co.enums.TipoEntidade;
+import com.Parceria.co.modules.documents.entities.Document;
+
 
 @Data
 @Entity
@@ -17,7 +19,7 @@ public class DocumentoRelacionamento {
 
     @ManyToOne
     @JoinColumn(name = "documento_id", nullable = false)
-    private Documento documento;
+    private Document document;
 
     @Column(name = "entidade_id", nullable = false)
     private Long entidadeId;

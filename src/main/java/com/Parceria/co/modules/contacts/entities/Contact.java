@@ -1,14 +1,17 @@
-package com.example.model;
+package com.Parceria.co.modules.contacts.entities;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
+@Builder
 @Entity
 @Table(name = "contatos")
 public class Contact {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

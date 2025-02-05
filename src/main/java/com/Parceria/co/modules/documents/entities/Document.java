@@ -1,6 +1,7 @@
-package com.example.model;
+package com.Parceria.co.modules.documents.entities;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -11,10 +12,6 @@ import java.time.LocalDateTime;
 @Table(name = "documentos")
 public class Document {
     
-    public Document() {
-
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

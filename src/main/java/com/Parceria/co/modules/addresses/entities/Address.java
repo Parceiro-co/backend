@@ -1,4 +1,4 @@
-package com.example.model;
+package com.Parceria.co.modules.addresses.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;

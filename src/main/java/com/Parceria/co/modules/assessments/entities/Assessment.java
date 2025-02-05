@@ -1,11 +1,17 @@
-package com.example.model;
+package com.Parceria.co.modules.assessments.entities;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
+import com.Parceria.co.modules.Empresa;
+import com.Parceria.co.modules.Trabalho;
+import com.Parceria.co.modules.parceiros.entities.Parceiro;
+
 @Data
+@Builder
 @Entity
 @Table(name = "avaliacoes")
 public class Assessment {
